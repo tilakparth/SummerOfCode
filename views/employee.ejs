@@ -1,0 +1,60 @@
+
+    <style>
+        button {
+            border: none;
+            background-color: transparent;
+            font-family: "Lucida Console", "Comic Sans MS";
+            letter-spacing: .1em;
+        }
+        
+        .log {
+            background-color: transparent;
+            border: none;
+            font-family: "Lucida Console", "Comic Sans MS";
+            letter-spacing: 0.1em;
+        }
+    </style>
+
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="/dashboard" class="logo">OfficeMarshall</a>
+            <nav id="nav">
+                <a style="padding: 0%">
+                    <form action="/dashboard/add" method="GET">
+                        <button type="submit">Add Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/refer" method="GET">
+                        <button type="submit">Assign Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/documents" method="GET">
+                        <button type="submit">View Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/employee" method="GET">
+                        <button type="submit">Employee List</button>
+                    </form>
+                </a>
+                <a href="/users/logout" class="btn btn-secondary log">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    <!--header end-->
+    <br>
+    <h3>Employee List:- </h3>
+    <ul>
+        <% for(var i=0; i < products.length ; i++) { %>
+            <br>
+            <li>
+                <%= products[i].name %> <br> id =
+                    <%= products[i]._id %>
+            </li>
+            <% } %>
+    </ul>

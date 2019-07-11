@@ -1,0 +1,95 @@
+
+    <style>
+        button {
+            border: none;
+            background-color: transparent;
+            font-family: "Lucida Console", "Comic Sans MS";
+            letter-spacing: .1em;
+        }
+
+        .log {
+            background-color: transparent;
+            border: none;
+            font-family: "Lucida Console", "Comic Sans MS";
+            letter-spacing: 0.1em;
+        }
+    </style>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="/dashboard" class="logo">OfficeMarshall</a>
+            <nav id="nav">
+                <a style="padding: 0%">
+                    <form action="/dashboard/add" method="GET">
+                        <button type="submit">Add Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/refer" method="GET">
+                        <button type="submit">Assign Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/documents" method="GET">
+                        <button type="submit">View Documents</button>
+                    </form>
+                </a>
+                <a style="padding: 0%">
+                    <form action="/dashboard/employee" method="GET">
+                        <button type="submit">Employee List</button>
+                    </form>
+                </a>
+                <a href="/users/logout" class="btn btn-secondary log">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+    <div>
+
+        <h1 class="mt-4">Assign Documents</h1>
+        <p class="lead mb-3">Welcome <%= user.name %>
+        </p><br>
+        <a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+    </div>
+    <br>
+    <% include ./partials/messages %>
+    <hr>
+    <h5>Assign a Document</h5>
+    <hr>
+
+
+    <div id="2">
+        <form action="/dashboard/refer" method="POST" enctype="form-data">
+            <label for="Doc_name">
+            <input type="text" id="doc_name" name="doc_name" placeholder="Doc Name"></label>
+            <label for="source">
+            <input type="file" id="source" name="source"></label>
+            <label for="employee_name">
+            <input type="text" id="employee_id" name="employee_id" placeholder="Employee id"></label>
+            <label for="comment">
+            <input type="text" id="comment" name="comment" placeholder="Comment"></label>
+            
+            <button type="submit" class='button' id="save">Assign</button><br>
+        </form>
+    </div>
+    <hr>
+    <h5>Terminate Document</h5>
+    <hr>
+    <form action="/dashboard/refer/terminate" method="POST">
+        <label for="doc_name">
+        <input type="text" id="doc_name" name="doc_name" placeholder="Doc Name"></label>
+        <button class='button' type="submit" id="save">Terminate Document</button>
+    </form>
+    <hr>
+    <h5>Revive Document</h5>
+    <hr>
+    <form action="/dashboard/refer/revive" method="POST">
+        <label for="doc_name">
+        <input type="text" id="doc_name" name="doc_name" placeholder="Doc Name"></label>
+        <button class='button' type="submit" id="save">Revive Document</button>
+    </form>
+
